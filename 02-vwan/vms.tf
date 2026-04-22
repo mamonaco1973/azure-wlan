@@ -106,7 +106,7 @@ resource "azurerm_linux_virtual_machine" "vm2" {
 
 resource "azurerm_network_interface" "nic3" {
   name                = "vwan-nic3"
-  location            = "West US 2"
+  location            = "Central US"
   resource_group_name = var.resource_group_name
 
   ip_configuration {
@@ -118,7 +118,7 @@ resource "azurerm_network_interface" "nic3" {
 
 resource "azurerm_linux_virtual_machine" "vm3" {
   name                            = "vwan-vm3"
-  location                        = "West US 2"
+  location                        = "Central US"
   resource_group_name             = var.resource_group_name
   size                            = "Standard_B1s"
   admin_username                  = "azureuser"
@@ -147,7 +147,7 @@ resource "azurerm_linux_virtual_machine" "vm3" {
     apt-get update -y
     apt-get install -y nginx
     IP=$(hostname -I | awk '{print $1}')
-    echo "$IP - Welcome to VNet westus2" > /var/www/html/index.html
+    echo "$IP - Welcome to VNet centralus" > /var/www/html/index.html
     systemctl enable nginx
     systemctl start nginx
   EOF

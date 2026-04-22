@@ -51,7 +51,7 @@ resource "azurerm_subnet_network_security_group_association" "nsg2_assoc" {
 
 resource "azurerm_network_security_group" "nsg3" {
   name                = "vwan-nsg3"
-  location            = "West US 2"
+  location            = "Central US"
   resource_group_name = var.resource_group_name
 
   security_rule {

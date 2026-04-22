@@ -85,12 +85,12 @@ resource "azurerm_subnet_nat_gateway_association" "subnet2_nat" {
 }
 
 # ================================================================================
-# VNet 3 — West US 2, 192.168.0.0/28
+# VNet 3 — Central US, 192.168.0.0/28
 # ================================================================================
 
 resource "azurerm_virtual_network" "vnet3" {
   name                = "vwan-vnet3"
-  location            = "West US 2"
+  location            = "Central US"
   resource_group_name = azurerm_resource_group.rg.name
   address_space       = ["192.168.0.0/28"]
 }
@@ -104,7 +104,7 @@ resource "azurerm_subnet" "subnet3" {
 
 resource "azurerm_public_ip" "nat_pip3" {
   name                = "vwan-nat-pip3"
-  location            = "West US 2"
+  location            = "Central US"
   resource_group_name = azurerm_resource_group.rg.name
   allocation_method   = "Static"
   sku                 = "Standard"
@@ -112,7 +112,7 @@ resource "azurerm_public_ip" "nat_pip3" {
 
 resource "azurerm_nat_gateway" "nat3" {
   name                = "vwan-nat3"
-  location            = "West US 2"
+  location            = "Central US"
   resource_group_name = azurerm_resource_group.rg.name
   sku_name            = "Standard"
 }

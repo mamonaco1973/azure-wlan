@@ -35,9 +35,9 @@ resource "azurerm_virtual_hub" "hub2" {
 }
 
 resource "azurerm_virtual_hub" "hub3" {
-  name                = "vwan-hub-westus2"
+  name                = "vwan-hub-centralus"
   resource_group_name = var.resource_group_name
-  location            = "West US 2"
+  location            = "Central US"
   virtual_wan_id      = azurerm_virtual_wan.vwan.id
   address_prefix      = "100.66.0.0/24"
   sku                 = "Standard"
