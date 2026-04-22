@@ -36,7 +36,7 @@ SUBNET3_ID=$(cd 01-networking && terraform output -raw subnet3_id)
 # ------------------------------------------------------------------------------
 # Stage 2: vWAN, VMs, NSGs
 # ------------------------------------------------------------------------------
-cd 02-vwan
+cd 02-peering
 terraform init -upgrade
 terraform apply -auto-approve \
   -var="resource_group_name=${RG}" \
@@ -51,9 +51,9 @@ cd ..
 # ------------------------------------------------------------------------------
 # Capture VM names from stage 2
 # ------------------------------------------------------------------------------
-VM1=$(cd 02-vwan && terraform output -raw vm1_name)
-VM2=$(cd 02-vwan && terraform output -raw vm2_name)
-VM3=$(cd 02-vwan && terraform output -raw vm3_name)
+VM1=$(cd 02-peering && terraform output -raw vm1_name)
+VM2=$(cd 02-peering && terraform output -raw vm2_name)
+VM3=$(cd 02-peering && terraform output -raw vm3_name)
 
 # ------------------------------------------------------------------------------
 # Wait for nginx to be active on each VM before validating

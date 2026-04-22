@@ -24,7 +24,7 @@ SUBNET3_ID=$(cd 01-networking && terraform output -raw subnet3_id)
 # ------------------------------------------------------------------------------
 # Stage 2 destroy: vWAN hubs, VMs, NSGs
 # ------------------------------------------------------------------------------
-cd 02-vwan
+cd 02-peering
 terraform destroy -auto-approve \
   -var="resource_group_name=${RG}" \
   -var="vnet1_id=${VNET1_ID}" \

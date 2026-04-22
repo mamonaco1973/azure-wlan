@@ -11,13 +11,13 @@ set -euo pipefail
 # Load resource group and VM names from Terraform outputs
 # ------------------------------------------------------------------------------
 RG=$(cd 01-networking && terraform output -raw resource_group_name)
-VM1=$(cd 02-vwan && terraform output -raw vm1_name)
-VM2=$(cd 02-vwan && terraform output -raw vm2_name)
-VM3=$(cd 02-vwan && terraform output -raw vm3_name)
+VM1=$(cd 02-peering && terraform output -raw vm1_name)
+VM2=$(cd 02-peering && terraform output -raw vm2_name)
+VM3=$(cd 02-peering && terraform output -raw vm3_name)
 
-VM1_IP=$(cd 02-vwan && terraform output -raw vm1_private_ip)
-VM2_IP=$(cd 02-vwan && terraform output -raw vm2_private_ip)
-VM3_IP=$(cd 02-vwan && terraform output -raw vm3_private_ip)
+VM1_IP=$(cd 02-peering && terraform output -raw vm1_private_ip)
+VM2_IP=$(cd 02-peering && terraform output -raw vm2_private_ip)
+VM3_IP=$(cd 02-peering && terraform output -raw vm3_private_ip)
 
 # ------------------------------------------------------------------------------
 # Wait for nginx to be active before curling — safe to call standalone
